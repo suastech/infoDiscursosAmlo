@@ -1,8 +1,9 @@
 //Se crea un objeto que contabilizará las menciones para cada año:
 let counter = {"2018": 0, "2019": 0, "2020": 0, "2021": 0, "2022": 0, "2023": 0, "2024": 0};
 
-//Una vez obtenidos los archivos, se itera sobre su contenido con el método exec y una expresión regular.
-let expression = new RegExp(`\\b${phrase}\\b`, 'gi');
+//Una vez obtenidos los archivos, se itera sobre su contenido con el método exec y una expresión regular. 
+//Nótese que phrase ya ha sidop reviamente convertido a minúsculas.
+let expression = new RegExp(`\\b${phrase}\\b`, 'g');
 for (const file of files) {
     let match;
     /*La expresión regular busca coincidencias exactas de una palabra y registra en qué año se produjo.
@@ -13,4 +14,5 @@ for (const file of files) {
 }
 
 //Finalmente, se devuelven los valores de las repeticiones de la palabra o frase para cada año. 
-return main_counter
+counter = Object.values(counter);
+return counter
